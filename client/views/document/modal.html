@@ -1,0 +1,22 @@
+<template name="modal">
+  <div id="translationModal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>{{focusWord}}</h4>
+      <ul class="collection">
+        <li class="collection-item">
+          <span class="title">{{_ "pronunciation"}}</span>
+          <p>
+            {{pronunciation}}
+          </p>
+        </li>
+
+        <li class="collection-item">
+          <span class="title">{{_ "translation"}}</span>
+          <p>
+            {{translation}}
+          </p>
+     	</li>
+     </ul>
+   </div>
+	</div>
+</template>

@@ -1,0 +1,22 @@
+<template name="document">
+  <div class="container reader">
+    <h3>{{title}}</h3>
+    {{#each text}}
+        {{> paragraph}}
+    {{/each}}
+
+    {{> modal}}
+  </div>
+</template>
+
+<template name="paragraph">
+	<p>
+	{{#each .}}
+		{{> word}}
+	{{/each}}
+	</p>
+</template>
+
+<template name="word">
+	<span>{{.}}</span>
+</template>
