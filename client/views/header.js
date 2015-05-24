@@ -1,7 +1,3 @@
-Template.header.rendered = function () {
-    $(".button-collapse").sideNav();
-};
-
 Template.header.events({
 	'click .language-selector': function(e, template) {
 		e.preventDefault();
