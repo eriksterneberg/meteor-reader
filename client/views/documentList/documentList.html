@@ -1,30 +1,21 @@
 <template name="documentsList">
   <div class="container">
+    <h4>{{_ "My Library"}}</h4>
     <div class="section">
-      <div class="row isotope" style="position: relative; height: 583.5px;">
-        {{#each documents}}
-            {{> documentCover}}
-        {{/each}}
-      </div>
+      {{#each documents}}
+          {{> documentCover}}
+      {{/each}}
     </div>
   </div>
-
-  {{> footer}}
 </template>
 
 <template name="documentCover">
-  <div class="col s12 m6 l4">
-    <div class="card">
-      <a href="{{pathFor 'document' }}">
-        <div class="card-image waves-effect waves-block waves-light">
-            <img width="1024" height="759" src="/media/images/{{cover}}" class="responsive-img wp-post-image" alt="Café Replika" title="Café Replika" />
-        </div>
-        <div class="card-content">
-          <p class="area">{{author}}</p>
-          <span class="card-title activator brown-text text-darken-4">{{title}}</span>
-        </div>
-      </a>
-    </div>
+  <div class="card">
+    <a href="{{pathFor 'document' }}">
+      <div class="card-content">
+        <span>{{title}}</span>
+      </div>
+    </a>
   </div>
 </template>
 

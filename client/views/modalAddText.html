@@ -1,0 +1,26 @@
+<template name="modalAddText">
+  <div id="modalAddText" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Add Text</h4>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Placeholder" id="title" name="title" type="text" class="validate">
+          <label for="title">Title</label>
+        </div>      
+        <div class="input-field col s12">
+          <textarea id="textarea1" class="materialize-textarea" name="text"></textarea>
+          <label for="textarea1">Textarea</label>
+        </div>
+      </div>
+
+	    <button type="submit" class="btn btn-primary">Submit</button>      
+    </form>
+  </div>      
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add</a>
+    </div>
+  </div>
+</template>

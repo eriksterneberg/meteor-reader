@@ -1,8 +1,10 @@
-.card-image {
-  max-height: 500px;
-}
-
 nav ul a,
 nav .brand-logo {
   color: #444;
+  font-size: 1.6em;
+  text-transform: uppercase;
+}
+
+.parallax-container {
+    height: 350px;
 }
