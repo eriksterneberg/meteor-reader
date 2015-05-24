@@ -1,6 +1,7 @@
 {
-	"app_name": "轻松阅读",
+	"app_name": "陨石阅读",
 	"select_language": "选择语言",
 	"translation": "翻译",
+	"no_translation": "此单词没有翻译。",
 	"pronunciation": "发音"
 }

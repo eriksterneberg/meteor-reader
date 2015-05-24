@@ -1,27 +1,20 @@
+var lookUp = function() {
+	var word = Session.get('focusWord'),
+		obj = Translations.findOne({'key': word});
+
+	return obj;
+};
+
 Template.modal.helpers({
 	focusWord: function () {
 		return Session.get('focusWord');
 	},
 	translation: function () {
-		var word = Session.get('focusWord');
-		console.log('Looking up: ' + word);
-		var obj = Translations.findOne({'key': word});
-		// console.log(obj);
-		if (obj)
-			return obj.content;
-		else
-			return TAPi18n.__("no_translation")
-		// return TAPi18n.__(word);
+		var obj = lookUp();
+		return obj ? obj.content : TAPi18n.__("no_translation");
 	},
 	pronunciation: 	function () {
-		var word = Session.get('focusWord');
-		console.log('Looking up: ' + word);
-		var obj = Translations.findOne({'key': word});
-		// console.log(obj);
-		if (obj)
-			return obj.pronunciation;
-		else
-			return TAPi18n.__("no_translation")
-		// return TAPi18n.__(word);
+		var obj = lookUp();
+		return obj ? obj.pronunciation : TAPi18n.__("no_translation");
 	},
 });
