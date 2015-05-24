@@ -22,8 +22,3 @@ Template.document.events({
 		});
 	},
 });
-
-Template.document.onCreated(function () {
-	var instance = this;
-  instance.translations = TAPi18n.subscribe('translations');
-});

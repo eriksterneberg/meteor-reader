@@ -53,7 +53,6 @@ spacebars@1.0.6
 spacebars-compiler@1.0.6
 sterneberg:nlp@0.0.1
 tap:i18n@1.4.1
-tap:i18n-db@0.4.0
 tap:i18n-ui@0.7.0
 templating@1.1.1
 tracker@1.0.7

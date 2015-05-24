@@ -1,26 +1,28 @@
 <template name="modalAddText">
   <div id="modalAddText" class="modal modal-fixed-footer">
-    <div class="modal-content">
-      <h4>Add Text</h4>
-  <div class="row">
     <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Placeholder" id="title" name="title" type="text" class="validate">
-          <label for="title">Title</label>
+      <div class="modal-content">
+        <h4>Add Text</h4>
+        <div class="row">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Name of document" id="title" name="title" type="text" class="validate">
+              <label class="active" for="title">Title</label>
+            </div>      
+            <div class="input-field col s12">
+              <textarea id="textarea1" class="materialize-textarea" name="text"></textarea>
+              <label for="textarea1">Textarea</label>
+            </div>
+          </div>
         </div>      
-        <div class="input-field col s12">
-          <textarea id="textarea1" class="materialize-textarea" name="text"></textarea>
-          <label for="textarea1">Textarea</label>
-        </div>
       </div>
+      <div class="modal-footer">
+        <div class="left">
+        <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Close</a>
+        </div>
 
-	    <button type="submit" class="btn btn-primary">Submit</button>      
-    </form>
-  </div>      
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Add</a>
-    </div>
+        <button type="submit" class="modal-action modal-close btn btn-primary">Submit</button>       
+      </div>
+    </form>    
   </div>
 </template>
