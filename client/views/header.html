@@ -1,7 +1,7 @@
 <template name="header">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="{{pathFor 'frontPage'}}" class="brand-logo">{{_ "app_name"}}</a>
+      {{> appLogo}}
 
       <div class="right">
           <a class="btn-floating btn-large waves-effect waves-light red add-text-button add-text">
@@ -12,11 +12,15 @@
   </nav> 
 </template>
 
+<template name="appLogo">
+  <a id="logo-container" href="{{pathFor 'frontPage'}}" class="brand-logo">{{_ "app_name"}}</a>
+</template>
+
 
 <template name="readerHeader">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="{{pathFor 'frontPage'}}" class="brand-logo">{{_ "app_name"}}</a>
+      {{> appLogo}}
     </div>
   </nav>
 </template>
