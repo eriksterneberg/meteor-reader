@@ -16,9 +16,3 @@ var stripPunctuation = function(text) {
     return _stripPunctuationSuffix(_stripPunctuationPrefix(text));
 };
 Nlp.stripPunctuation = stripPunctuation;
-
-
-var lookUpWord = function (word) {
-    return 'Awesome translation';
-};
-Nlp.lookUpWord = lookUpWord;

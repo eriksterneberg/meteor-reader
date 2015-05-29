@@ -13,6 +13,7 @@ coffeescript@1.0.6
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
+eriksterneberg:esperantodict@0.0.1
 fastclick@1.0.3
 geojson-utils@1.0.3
 html-tools@1.0.4

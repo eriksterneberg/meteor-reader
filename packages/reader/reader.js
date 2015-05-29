@@ -13,6 +13,12 @@ var textToDocument = function (text) {
 };
 
 
+var lookUpWord = function (word) {
+	Meteor.subscribe('eo-en-translations', word);
+    return EsperantoEnglishDict.find({key: word});
+};
+
 Reader = {
 	textToDocument: textToDocument,
+	lookUpWord: lookUpWord
 };

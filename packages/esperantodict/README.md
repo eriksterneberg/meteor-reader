@@ -1,0 +1,1 @@
+The Esperanto-English dictionary used in this package is licensed under Creative Commons, see: http://www.denisowski.org/Esperanto/espdic_readme.htm

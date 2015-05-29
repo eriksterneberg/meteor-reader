@@ -4,10 +4,12 @@
       <h4>{{focusWord}}</h4>
       <ul class="collection">
         <li class="collection-item">
-          <span class="title">{{_ "translation"}}</span>
-          <p>
-            {{translation}}
-          </p>
+          <span class="title">{{_ "translation"}}:</span>
+          {{#each translations}}
+            <p>
+                {{ t }}
+            </p>
+          {{/each}}
      	</li>
      </ul>
    </div>
