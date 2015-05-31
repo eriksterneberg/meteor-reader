@@ -16,12 +16,13 @@ Package.onUse(function(api) {
   api.use('session', 'client');
 
   api.versionsFrom('1.1.0.2');
-  api.addFiles('collections.js');
-  api.addFiles('fixtures.json');
+  api.addFiles(['publications.js', 'fixtures.json'], ['server']);
+  api.addFiles(['collections.js']);
+  api.addFiles('fixtures.js', 'server');
 
   if (api.export) {
       api.export('EsperantoEnglishDict');
-  }; 
+  };
 });
 
 Package.onTest(function(api) {
