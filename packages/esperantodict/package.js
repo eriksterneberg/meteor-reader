@@ -18,16 +18,18 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.addFiles(['publications.js', 'fixtures.json'], ['server']);
   api.addFiles('subscriptions.js', 'client');
-  api.addFiles(['collections.js']);
+  api.addFiles(['collections.js', 'lookup.js']);
   api.addFiles('fixtures.js', 'server');
 
   if (api.export) {
       api.export('EsperantoEnglishDict');
+      api.export('EoEnDict');
   };
 });
 
 Package.onTest(function(api) {
+  api.use('mongo');
   api.use('tinytest');
   api.use('eriksterneberg:esperantodict');
-  api.addFiles('esperantodict-tests.js');
+  api.addFiles(['lookup.js', 'tests.js']);
 });
