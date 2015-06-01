@@ -4,5 +4,7 @@
 	"translation": "Translation",
 	"no_translation": "No translation available",
  	"pronunciation": "pronunciation",
- 	"My Library": "My Library"
+ 	"My Library": "My Library",
+ 	"sign_in_with_github": "Log in with Github",
+ 	"signed_in_with_github": "You are signed in with Github"
 }

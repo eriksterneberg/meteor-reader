@@ -1,0 +1,19 @@
+<template name="header">
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      {{> appLogo}}
+
+      {{#if currentUser}}
+	      {{>addTextButton}}
+	  {{/if}}
+    </div>
+  </nav>
+</template>
+
+<template name="addTextButton">
+  <div class="right">
+      <a class="btn-floating btn-large waves-effect waves-light red add-text-button add-text">
+        <i class="mdi-content-add"></i>
+      </a>
+  </div>
+</template>
