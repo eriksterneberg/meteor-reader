@@ -11,16 +11,17 @@ var textToParagraphs = function (text) {
 };
 
 
-var PARAGRAPHS_INCREMENT = 20;
+var PARAGRAPHS_INCREMENT = 10;
 
 var getParagraphsLimit = function (docId) {
-	var limit = Session.get('paragraphsLimit');
+	var limit = Session.get('/' + docId + '/paragraphsLimit/');
 	return limit ? limit : PARAGRAPHS_INCREMENT;
 };
 
 var setParagraphsLimit = function (docId) {
-    Session.set("paragraphsLimit",
-    Session.get("paragraphsLimit") + PARAGRAPHS_INCREMENT);
+    Session.set(
+    	'/' + docId + '/paragraphsLimit/',
+    	getParagraphsLimit(docId) + PARAGRAPHS_INCREMENT);
 };
 
 Reader = {

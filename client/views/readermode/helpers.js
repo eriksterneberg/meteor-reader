@@ -23,6 +23,12 @@ Template.document.events({
 	},
 });
 
+Template.document.rendered = function () {
+	if (this.hasOwnProperty('data') && this.data.hasOwnProperty('_id')) {
+		Session.set('currentDocId', this.data._id);
+	}
+};
+
 Template.document.helpers({
 	paragraphs: function () {
 		return Paragraphs.find();
@@ -30,7 +36,8 @@ Template.document.helpers({
 	moreResults: function () {
 	    // If, once the subscription is ready, we have less rows than we
 	    // asked for, we've got all the rows in the collection.
-	    return !(Paragraphs.find().count() < Reader.getParagraphsLimit());
+	    var docId = Session.get('currentDocId');
+	    return !(Paragraphs.find().count() < Reader.getParagraphsLimit(docId));
 	}
 });
 
@@ -53,7 +60,8 @@ function showMoreVisible() {
     if (target.offset().top < threshold) {
         if (!target.data("visible")) {
             target.data("visible", true);
-            Reader.setParagraphsLimit();
+            var docId = Session.get('currentDocId');
+            Reader.setParagraphsLimit(docId);
         }
     } else {
         if (target.data("visible")) {
