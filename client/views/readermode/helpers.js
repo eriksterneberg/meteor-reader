@@ -30,7 +30,7 @@ Template.document.helpers({
 	moreResults: function () {
 	    // If, once the subscription is ready, we have less rows than we
 	    // asked for, we've got all the rows in the collection.
-	    return !(Paragraphs.find().count() < Session.get("paragraphsLimit"));
+	    return !(Paragraphs.find().count() < Reader.getParagraphsLimit());
 	}
 });
 
@@ -53,8 +53,7 @@ function showMoreVisible() {
     if (target.offset().top < threshold) {
         if (!target.data("visible")) {
             target.data("visible", true);
-            Session.set("paragraphsLimit",
-            Session.get("paragraphsLimit") + PARAGRAPHS_INCREMENT);
+            Reader.setParagraphsLimit();
         }
     } else {
         if (target.data("visible")) {

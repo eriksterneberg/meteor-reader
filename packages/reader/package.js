@@ -14,6 +14,8 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.addFiles('reader.js');
 
+  api.use('session', 'client');
+
   if (api.export) {
       api.export('Reader');
   };  
