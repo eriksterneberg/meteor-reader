@@ -23,6 +23,12 @@ Template.document.events({
 	},
 });
 
+Template.document.helpers({
+	paragraphs: function () {
+		return Paragraphs.find();
+	}
+});
+
 Template.modal.helpers({
 	focusWord: function () {
 		return Session.get('focusWord');

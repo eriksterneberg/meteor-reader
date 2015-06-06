@@ -4,15 +4,13 @@ var _splitLines = function (lines) {
 	});
 };
 
-var textToDocument = function (text) {
+var textToParagraphs = function (text) {
 	var lines = text.split(/\n+/);
 
-	return {
-		'text': _splitLines(lines)
-	};
+	return _splitLines(lines);
 };
 
 
 Reader = {
-	textToDocument: textToDocument,
+	textToParagraphs: textToParagraphs,
 };

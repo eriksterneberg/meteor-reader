@@ -3,17 +3,18 @@
 
   <div class="container reader">
     <h3>{{title}}</h3>
-    {{#each text}}
-        {{> paragraph}}
+
+    {{#each paragraphs}}
+        {{>text}}
     {{/each}}
 
     {{> modal}}
   </div>
 </template>
 
-<template name="paragraph">
+<template name="text">
 	<p>
-	{{#each .}}
+	{{#each text}}
 		{{> word}}
 	{{/each}}
 	</p>
