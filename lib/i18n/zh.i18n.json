@@ -5,6 +5,7 @@
 	"no_translation": "此单词没有翻译。",
 	"pronunciation": "发音",
 	"My Library": "我的图书",
-	"sign_in_with_github": "用Github账户登入",
+	"sign_in": "登入",
+	"signed_in": "你已登入",
 	"signed_in_with_github": "你已用Github账户登入"
 }
