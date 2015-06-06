@@ -24,8 +24,13 @@ var setParagraphsLimit = function (docId) {
     	getParagraphsLimit(docId) + PARAGRAPHS_INCREMENT);
 };
 
+var getParagraphsSkip = function (docId) {
+	return getParagraphsLimit(docId) - PARAGRAPHS_INCREMENT;
+};
+
 Reader = {
 	textToParagraphs: textToParagraphs,
 	getParagraphsLimit: getParagraphsLimit,
-	setParagraphsLimit: setParagraphsLimit
+	setParagraphsLimit: setParagraphsLimit,
+	getParagraphsSkip: getParagraphsSkip
 };
