@@ -26,6 +26,7 @@ Template.document.events({
 Template.document.rendered = function () {
 	if (this.hasOwnProperty('data') && this.data.hasOwnProperty('_id')) {
 		Session.set('currentDocId', this.data._id);
+		Reader.unlockScroll(this.data._id);
 	}
 };
 
@@ -52,8 +53,13 @@ Template.modal.helpers({
 
 // whenever #showMoreResults becomes visible, retrieve more results
 function showMoreVisible() {
-	if ($(window).scrollTop() < 0) {
-        var docId = Session.get('currentDocId');
+	var docId = Session.get('currentDocId'),
+		scrollTop = $(window).scrollTop();
+
+	if (scrollTop < 0 && scrollTop % 3 == 0) {
+		if (Reader.isLocked(docId)) {
+			return;
+		}
 		return Reader.decrementParagraphsSkip(docId);
 	}
 
@@ -62,12 +68,14 @@ function showMoreVisible() {
 		return;
     }
  
-    threshold = $(window).scrollTop() + $(window).height() - target.height();
+    threshold = scrollTop + $(window).height() - target.height();
  
     if (target.offset().top < threshold) {
         if (!target.data("visible")) {
+          	if (Reader.isLocked(docId)) {
+				return;
+			}
             target.data("visible", true);
-            var docId = Session.get('currentDocId');
             Reader.incrementParagraphsSkip(docId);
         }
     } else {

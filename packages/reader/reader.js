@@ -22,19 +22,48 @@ var getParagraphsSkip = function (docId) {
 };
 
 var incrementParagraphsSkip = function (docId) {
+	lockScroll();
+
 	var skip = getParagraphsSkip(docId) + PARAGRAPHS_INCREMENT;
     Session.set('/' + docId + '/paragraphsSkip/', skip);
 };
 
 var decrementParagraphsSkip = function (docId) {
+	lockScroll();
+
 	var skip = getParagraphsSkip(docId) - PARAGRAPHS_INCREMENT;
 	skip = skip >= 0 ? skip : 0;
     Session.set('/' + docId + '/paragraphsSkip/', skip);
 };
 
+var isLocked = function (docId) {
+ 	return Session.get('/' + docId + '/scrollLock/');
+};
+
+var lockScroll = function (docId) {
+	if (!isLocked(docId)) {
+		console.log('Locking scroll');
+		Session.set('/' + docId + '/scrollLock/', true);
+		_releaseOnTimeout(docId);
+	}
+};
+
+var unlockScroll = function (docId) {
+	console.log('Unlocking scroll');
+	Session.set('/' + docId + '/scrollLock/', false);
+};
+
+var _releaseOnTimeout = function(docId) {
+	Meteor.setTimeout(function(){
+		unlockScroll(docId);
+	}, 4000);
+}
+
 Reader = {
 	textToParagraphs: textToParagraphs,
 	getParagraphsSkip: getParagraphsSkip,
 	incrementParagraphsSkip: incrementParagraphsSkip,
-	decrementParagraphsSkip: decrementParagraphsSkip
+	decrementParagraphsSkip: decrementParagraphsSkip,
+	unlockScroll: unlockScroll,
+	isLocked: isLocked,
 };
