@@ -2,8 +2,9 @@ Meteor.publish('documents', function() {
 	return Documents.find({userId: this.userId});
 });
 
-Meteor.publish('paragraphs', function(docId, limit, skip) {
+var LIMIT = 10;
+Meteor.publish('paragraphs', function(docId, skip) {
 	if (docId) {
-		return Paragraphs.find({docId: docId}, {limit: limit, skip: skip});
+		return Paragraphs.find({docId: docId}, {limit: LIMIT, skip: skip});
 	}
 });

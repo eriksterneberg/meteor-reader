@@ -11,26 +11,30 @@ var textToParagraphs = function (text) {
 };
 
 
-var PARAGRAPHS_INCREMENT = 10;
-
-var getParagraphsLimit = function (docId) {
-	var limit = Session.get('/' + docId + '/paragraphsLimit/');
-	return limit ? limit : PARAGRAPHS_INCREMENT;
-};
-
-var setParagraphsLimit = function (docId) {
-    Session.set(
-    	'/' + docId + '/paragraphsLimit/',
-    	getParagraphsLimit(docId) + PARAGRAPHS_INCREMENT);
-};
+var PARAGRAPHS_INCREMENT = 25;
 
 var getParagraphsSkip = function (docId) {
-	return getParagraphsLimit(docId) - PARAGRAPHS_INCREMENT;
+	var skip = Session.get('/' + docId + '/paragraphsSkip/');
+	if (skip === undefined) {
+		skip = 0;
+	}
+	return skip;
+};
+
+var incrementParagraphsSkip = function (docId) {
+	var skip = getParagraphsSkip(docId) + PARAGRAPHS_INCREMENT;
+    Session.set('/' + docId + '/paragraphsSkip/', skip);
+};
+
+var decrementParagraphsSkip = function (docId) {
+	var skip = getParagraphsSkip(docId) - PARAGRAPHS_INCREMENT;
+	skip = skip >= 0 ? skip : 0;
+    Session.set('/' + docId + '/paragraphsSkip/', skip);
 };
 
 Reader = {
 	textToParagraphs: textToParagraphs,
-	getParagraphsLimit: getParagraphsLimit,
-	setParagraphsLimit: setParagraphsLimit,
-	getParagraphsSkip: getParagraphsSkip
+	getParagraphsSkip: getParagraphsSkip,
+	incrementParagraphsSkip: incrementParagraphsSkip,
+	decrementParagraphsSkip: decrementParagraphsSkip
 };
