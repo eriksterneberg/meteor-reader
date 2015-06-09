@@ -42,14 +42,12 @@ var isLocked = function (docId) {
 
 var lockScroll = function (docId) {
 	if (!isLocked(docId)) {
-		console.log('Locking scroll');
 		Session.set('/' + docId + '/scrollLock/', true);
 		_releaseOnTimeout(docId);
 	}
 };
 
 var unlockScroll = function (docId) {
-	console.log('Unlocking scroll');
 	Session.set('/' + docId + '/scrollLock/', false);
 };
 
@@ -66,4 +64,5 @@ Reader = {
 	decrementParagraphsSkip: decrementParagraphsSkip,
 	unlockScroll: unlockScroll,
 	isLocked: isLocked,
+	PARAGRAPHS_INCREMENT: PARAGRAPHS_INCREMENT
 };

@@ -24,6 +24,8 @@ Template.document.events({
 });
 
 Template.document.rendered = function () {
+	window.scrollTo(0, 0);
+
 	if (this.hasOwnProperty('data') && this.data.hasOwnProperty('_id')) {
 		Session.set('currentDocId', this.data._id);
 		Reader.unlockScroll(this.data._id);
@@ -38,7 +40,7 @@ Template.document.helpers({
 	    // If, once the subscription is ready, we have less rows than we
 	    // asked for, we've got all the rows in the collection.
 	    var docId = Session.get('currentDocId');
-	    return !(Paragraphs.find().count() < Reader.getParagraphsSkip(docId));
+	    return !(Paragraphs.find().count() < Reader.PARAGRAPHS_INCREMENT);
 	}
 });
 
