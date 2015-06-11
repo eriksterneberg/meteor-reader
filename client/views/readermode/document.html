@@ -2,8 +2,6 @@
   {{> readerHeader}}
 
   <div class="container reader">
-    <h3>{{title}}</h3>
-
     {{#each paragraphs}}
         {{>text}}
     {{/each}}
@@ -19,7 +17,7 @@
 </template>
 
 <template name="text">
-	<p>
+	<p class="flow-text">
 	{{#each text}}
 		{{> word}}
 	{{/each}}

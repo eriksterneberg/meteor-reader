@@ -1,7 +1,9 @@
 <template name="readerHeader">
   <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      {{> appLogo}}
+    	<a href="{{pathFor 'frontPage'}}">
+	    	<div class="reader-navbar truncate">{{ title }}</div>
+    	</a>
     </div>
   </nav>
 </template>

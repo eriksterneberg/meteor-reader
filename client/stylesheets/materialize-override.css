@@ -1,8 +1,15 @@
 nav ul a,
-nav .brand-logo {
+nav .brand-logo, nav .reader-navbar {
   color: #444;
+}
+
+nav .brand-logo {
   font-size: 1.6em;
   text-transform: uppercase;
+}
+
+nav .reader-navbar {
+  font-size: 1.4em;
 }
 
 .parallax-container {
