@@ -2,17 +2,19 @@
   {{> readerHeader}}
 
   <div class="container reader">
-    {{#each paragraphs}}
-        {{>text}}
-    {{/each}}
+      {{#if lessResults}}
+          <i id="goPreviousPage" class="mdi-navigation-chevron-left medium"></i>
+      {{/if}}
 
-    {{#if moreResults}}
-      <div id="showMoreResults" style="margin-left: 25px;">
-        <span class="loading">Loading...</span>
-      </div>
-    {{/if}}
+      {{#each paragraphs}}
+          {{>text}}
+      {{/each}}
 
-    {{> modal}}
+      {{#if moreResults}}
+          <i id="goNextPage" class="mdi-navigation-chevron-right right medium"></i>
+      {{/if}}
+
+      {{> modal}}
   </div>
 </template>
 

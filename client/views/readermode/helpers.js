@@ -21,6 +21,20 @@ Template.document.events({
 		    }
 		});
 	},
+	'click #goPreviousPage': function(e, template) {
+		var docId = Session.get('currentDocId');
+       	if (Reader.isLocked(docId)) {
+			return;
+		}
+        Reader.decrementParagraphsSkip(docId);
+	},
+	'click #goNextPage': function(e, template) {
+		var docId = Session.get('currentDocId');
+       	if (Reader.isLocked(docId)) {
+			return;
+		}
+        Reader.incrementParagraphsSkip(docId);
+	}
 });
 
 Template.document.rendered = function () {
@@ -35,6 +49,10 @@ Template.document.rendered = function () {
 Template.document.helpers({
 	paragraphs: function () {
 		return Paragraphs.find();
+	},
+	lessResults: function () {
+	    var docId = Session.get('currentDocId');
+		return Reader.getParagraphsSkip(docId) !== 0;
 	},
 	moreResults: function () {
 	    // If, once the subscription is ready, we have less rows than we
@@ -54,38 +72,38 @@ Template.modal.helpers({
 });
 
 // whenever #showMoreResults becomes visible, retrieve more results
-function showMoreVisible() {
-	var docId = Session.get('currentDocId'),
-		scrollTop = $(window).scrollTop();
+// function showMoreVisible() {
+// 	var docId = Session.get('currentDocId'),
+// 		scrollTop = $(window).scrollTop();
 
-	if (scrollTop < 0 && scrollTop % 3 == 0) {
-		if (Reader.isLocked(docId)) {
-			return;
-		}
-		return Reader.decrementParagraphsSkip(docId);
-	}
+// 	if (scrollTop < 0 && scrollTop % 3 == 0) {
+// 		if (Reader.isLocked(docId)) {
+// 			return;
+// 		}
+// 		return Reader.decrementParagraphsSkip(docId);
+// 	}
 
-    var threshold, target = $("#showMoreResults");
-    if (!target.length) {
-		return;
-    }
+//     var threshold, target = $("#showMoreResults");
+//     if (!target.length) {
+// 		return;
+//     }
  
-    threshold = scrollTop + $(window).height() - target.height();
+//     threshold = scrollTop + $(window).height() - target.height();
  
-    if (target.offset().top < threshold) {
-        if (!target.data("visible")) {
-          	if (Reader.isLocked(docId)) {
-				return;
-			}
-            target.data("visible", true);
-            Reader.incrementParagraphsSkip(docId);
-        }
-    } else {
-        if (target.data("visible")) {
-            target.data("visible", false);
-        }
-    }        
-}
+//     if (target.offset().top < threshold) {
+//         if (!target.data("visible")) {
+//           	if (Reader.isLocked(docId)) {
+// 				return;
+// 			}
+//             target.data("visible", true);
+//             Reader.incrementParagraphsSkip(docId);
+//         }
+//     } else {
+//         if (target.data("visible")) {
+//             target.data("visible", false);
+//         }
+//     }        
+// }
 
 // run the above func every time the user scrolls
-$(window).scroll(showMoreVisible);
+// $(window).scroll(showMoreVisible);
