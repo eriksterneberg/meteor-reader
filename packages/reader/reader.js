@@ -11,7 +11,7 @@ var textToParagraphs = function (text) {
 };
 
 
-PARAGRAPHS_INCREMENT = 25;
+PARAGRAPHS_INCREMENT = 10;
 
 var getParagraphsSkip = function (docId) {
 	var skip = Session.get('/' + docId + '/paragraphsSkip/');
