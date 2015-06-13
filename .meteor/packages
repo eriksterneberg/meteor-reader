@@ -10,7 +10,6 @@ materialize:materialize
 tap:i18n
 tap:i18n-ui
 sterneberg:nlp
-reader
 eriksterneberg:esperantodict
 underscore
 accounts-github

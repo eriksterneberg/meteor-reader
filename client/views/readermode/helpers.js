@@ -48,7 +48,7 @@ Template.document.rendered = function () {
 
 Template.document.helpers({
 	paragraphs: function () {
-		return Reader.Paragraphs.find();
+		return Paragraphs.find();
 	},
 	lessResults: function () {
 	    var docId = Session.get('currentDocId');
@@ -58,7 +58,7 @@ Template.document.helpers({
 	    // If, once the subscription is ready, we have less rows than we
 	    // asked for, we've got all the rows in the collection.
 	    var docId = Session.get('currentDocId');
-	    return !(Reader.Paragraphs.find().count() < Reader.PARAGRAPHS_INCREMENT);
+	    return !(Paragraphs.find().count() < Reader.PARAGRAPHS_INCREMENT);
 	}
 });
 
