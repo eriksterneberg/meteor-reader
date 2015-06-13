@@ -26,14 +26,14 @@ Template.document.events({
        	if (Reader.isLocked(docId)) {
 			return;
 		}
-        Reader.decrementParagraphsSkip(docId);
+        Reader.decrementSkip(docId);
 	},
 	'click #goNextPage': function(e, template) {
 		var docId = Session.get('currentDocId');
        	if (Reader.isLocked(docId)) {
 			return;
 		}
-        Reader.incrementParagraphsSkip(docId);
+        Reader.incrementSkip(docId);
 	}
 });
 
@@ -51,7 +51,7 @@ Template.document.helpers({
 	},
 	lessResults: function () {
 	    var docId = Session.get('currentDocId');
-		return Reader.getParagraphsSkip(docId) !== 0;
+		return Reader.getSkip(docId) !== 0;
 	},
 	moreResults: function () {
 	    // If, once the subscription is ready, we have less rows than we
