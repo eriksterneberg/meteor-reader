@@ -12,15 +12,20 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
+  api.use(['iron:router']);
 
+  // Client only
   api.use('session', 'client');
-  api.use('iron:router');
-  
-  api.addFiles(['loading.html', 'router.js']);
-  api.addFiles(['materialize-override.css', 'custom.css']);
+  api.addFiles(
+    ['loading.html', 'main.html',
+     'stylesheets/materialize-override.css',
+     'stylesheets/custom.css', 'startup.js'],
+    'client');
 
-  api.addFiles('reader.js');
+  // Both  
+  api.addFiles(['router.js', 'reader.js']);
 
+  // Server only
   api.addFiles('publications.js', 'server');
 
   if (api.export) {
