@@ -1,6 +1,6 @@
 Nlp = {};
 
-var STRIP_PUNCTUATION_BASE_REGEX = "[',.;:!\?！。，：；<>]+",
+var STRIP_PUNCTUATION_BASE_REGEX = "[()\"“”',.;:!\?！。，：；<>]+",
     STRIP_SUFFIX_REGEX = new RegExp(STRIP_PUNCTUATION_BASE_REGEX + '$', 'g'),
     STRIP_PREFIX_REGEX = new RegExp('^' + STRIP_PUNCTUATION_BASE_REGEX, 'g');
 
