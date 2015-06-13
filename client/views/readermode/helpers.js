@@ -48,7 +48,7 @@ Template.document.rendered = function () {
 
 Template.document.helpers({
 	paragraphs: function () {
-		return Paragraphs.find();
+		return Reader.Paragraphs.find();
 	},
 	lessResults: function () {
 	    var docId = Session.get('currentDocId');
@@ -58,7 +58,7 @@ Template.document.helpers({
 	    // If, once the subscription is ready, we have less rows than we
 	    // asked for, we've got all the rows in the collection.
 	    var docId = Session.get('currentDocId');
-	    return !(Paragraphs.find().count() < Reader.PARAGRAPHS_INCREMENT);
+	    return !(Reader.Paragraphs.find().count() < Reader.PARAGRAPHS_INCREMENT);
 	}
 });
 
@@ -70,40 +70,3 @@ Template.modal.helpers({
 		return EsperantoEnglishDict.find();
 	}
 });
-
-// whenever #showMoreResults becomes visible, retrieve more results
-// function showMoreVisible() {
-// 	var docId = Session.get('currentDocId'),
-// 		scrollTop = $(window).scrollTop();
-
-// 	if (scrollTop < 0 && scrollTop % 3 == 0) {
-// 		if (Reader.isLocked(docId)) {
-// 			return;
-// 		}
-// 		return Reader.decrementParagraphsSkip(docId);
-// 	}
-
-//     var threshold, target = $("#showMoreResults");
-//     if (!target.length) {
-// 		return;
-//     }
- 
-//     threshold = scrollTop + $(window).height() - target.height();
- 
-//     if (target.offset().top < threshold) {
-//         if (!target.data("visible")) {
-//           	if (Reader.isLocked(docId)) {
-// 				return;
-// 			}
-//             target.data("visible", true);
-//             Reader.incrementParagraphsSkip(docId);
-//         }
-//     } else {
-//         if (target.data("visible")) {
-//             target.data("visible", false);
-//         }
-//     }        
-// }
-
-// run the above func every time the user scrolls
-// $(window).scroll(showMoreVisible);

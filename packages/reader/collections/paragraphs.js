@@ -10,3 +10,5 @@ Paragraphs.allow({
 // 	doc.userId = userId;
 // 	doc.createdAt = Date.now();
 // });
+
+Reader.Paragraphs = Paragraphs;

@@ -12,18 +12,18 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.use(['iron:router']);
+  api.use(['iron:router', 'minimongo@1.0.8', 'mongo@1.1.0']);
 
   // Client only
   api.use('session', 'client');
   api.addFiles(
-    ['loading.html', 'main.html',
+    ['main.html',
      'stylesheets/materialize-override.css',
      'stylesheets/custom.css', 'startup.js'],
     'client');
 
   // Both  
-  api.addFiles(['router.js', 'reader.js']);
+  api.addFiles(['router.js', 'reader.js', 'collections/paragraphs.js']);
 
   // Server only
   api.addFiles('publications.js', 'server');
