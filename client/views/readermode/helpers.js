@@ -24,16 +24,10 @@ Template.document.events({
 	},
 	'click #goPreviousPage': function(e, template) {
 		var docId = Session.get('currentDocId');
-       	if (Reader.isLocked(docId)) {
-			return;
-		}
         Reader.decrementSkip(docId);
 	},
 	'click #goNextPage': function(e, template) {
 		var docId = Session.get('currentDocId');
-       	if (Reader.isLocked(docId)) {
-			return;
-		}
         Reader.incrementSkip(docId);
 	}
 });
