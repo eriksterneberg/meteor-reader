@@ -14,6 +14,7 @@ Template.document.events({
 		removeFocus();
 		addFocus(target);
 		Session.set('focusWord', focusWord);
+		Mediator.publish('eo->en', focusWord);
 
 		$('#translationModal').openModal({
 		    complete: function() {

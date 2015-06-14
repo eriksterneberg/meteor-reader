@@ -11,14 +11,13 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('mongo');
+  api.use(['mongo', 'mediator']);
   api.use('underscore', 'server');
   api.use(['session', 'tracker'], 'client');
 
   api.versionsFrom('1.1.0.2');
   api.addFiles(['publications.js', 'fixtures.json'], ['server']);
-  api.addFiles('subscriptions.js', 'client');
-  api.addFiles(['collections.js', 'lookup.js']);
+  api.addFiles(['collections.js', 'lookup.js', 'startup.js']);
   api.addFiles('fixtures.js', 'server');
 
   if (api.export) {
